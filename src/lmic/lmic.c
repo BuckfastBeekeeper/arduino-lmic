@@ -1676,7 +1676,7 @@ static bit_t processJoinAccept (void) {
     LMIC.dn2Dr = LMIC.frame[OFF_JA_DLSET] & 0x0F;
     LMIC.rx1DrOffset = (LMIC.frame[OFF_JA_DLSET] >> 4) & 0x7;
     LMIC.rxDelay = LMIC.frame[OFF_JA_RXDLY];
-    if (LMIC.rxDelay == 0) LMIC.rxDelay = 1;
+    if (LMIC.rxDelay == 0) LMIC.rxDelay = 5;// LMIC.rxDelayvan 1 op 5 gezet voor V3
     reportEventAndUpdate(EV_JOINED);
     return 1;
 }
